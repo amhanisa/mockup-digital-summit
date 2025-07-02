@@ -11,12 +11,29 @@
             crossorigin="anonymous"
         />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
-        <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/tutorials/timelines/timeline-1/assets/css/timeline-1.css" />
+        <style>
+            body {
+                background-color: #000;
+            }
+            .section-registration {
+                background: #051e39;
+                background: radial-gradient(circle 1000px at top center, rgba(5, 30, 57, 1) 0%, rgba(0, 1, 3, 1) 100%);
+            }
+
+            .form-label:after {
+                content: " *";
+                color: red;
+            }
+
+            .form-check-label:after {
+                content: " *";
+                color: red;
+            }
+        </style>
     </head>
     <body>
-        <section class="py-3">
+        <section class="py-3 section-registration">
             <div class="container">
-                <!-- <h1 class="display-5 fw-bold">Custom jumbotron</h1> -->
                 <div class="col-6 col-md-3 mx-auto">
                     <img src="logo.svg" alt="Honda Digital Summit" class="img-fluid mb-4" />
                 </div>
@@ -27,87 +44,40 @@
                         <a href="registration.html"><i class="bi bi-arrow-left"></i> back to selection</a>
                     </center>
                     <hr class="w-50 mx-auto mb-2 mb-xl-9 border-dark-subtle" />
-                    <p class="fs-4 text-muted text-center">Attende Information</p>
+                    <p class="fs-4 text-muted text-center">Attendee Information</p>
 
                     <div class="d-grid gap-4 col-10 mx-auto">
                         <form>
                             <div class="mb-3">
                                 <label class="form-label">Full Name</label>
-                                <input class="form-control form-control-lg" />
+                                <input class="form-control form-control-lg" required />
                             </div>
                             <div class="class-mb-3">
                                 <label class="form-label">Choose Your Main Dealer</label>
-                                <select class="form-select form-select-lg mb-3">
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <select class="form-select form-select-lg mb-3" id="mainDealer" required>
+                                    <option selected disabled>-- Select Main Dealer --</option>
                                 </select>
                             </div>
                             <div class="class-mb-3">
                                 <label class="form-label">Choose Your Dealer</label>
-                                <select class="form-select form-select-lg mb-3">
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
+                                <select class="form-select form-select-lg mb-3" id="dealer" required></select>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Phone Number</label>
-                                <input class="form-control form-control-lg" />
+                                <input class="form-control form-control-lg" required />
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Email</label>
-                                <input class="form-control form-control-lg" />
+                                <input type="email" class="form-control form-control-lg" required />
                             </div>
                             <div class="mb-3 form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="checkDefault" />
+                                <input class="form-check-input" type="checkbox" value="" id="checkDefault" required />
                                 <label class="form-check-label" for="checkDefault"> I am attending </label>
                             </div>
                             <a href="registration3.html" type="submit" class="d-inline-flex align-items-center btn-outline-primary btn btn-lg px-5 py-3">Submit</a>
                         </form>
                     </div>
                 </div>
-
-                <!-- <div class="col-12 col-lg-8 col-xl-6 mx-auto mb-5 px-6 py-4 row border rounded-3">
-                    <div class="col-12 col-md-6 overflow-hidden">
-                        <div class="row gy-4 px-2 px-md-0">
-                            <div class="col-2 col-lg-2 text-primary">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-                                    <path
-                                        d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"
-                                    />
-                                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                                </svg>
-                            </div>
-                            <div class="col-10 col-lg-10">
-                                <h6 class="mb-1">Date & Time</h6>
-                                <p class="mb-0">
-                                    Thursday, August 14<sup>th</sup> 2025 <br />
-                                    08.00 - 17.00
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 gy-4 gy-md-0 overflow-hidden">
-                        <div class="row gy-4 px-2">
-                            <div class="col-2 col-lg-2 text-primary">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="bi bi-calendar-event" viewBox="0 0 16 16">
-                                    <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z" />
-                                    <path
-                                        d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"
-                                    />
-                                </svg>
-                            </div>
-                            <div class="col-10 col-lg-10">
-                                <h6 class="mb-1">Location</h6>
-                                <p class="mb-0">
-                                    Honda Prospect Motor HQ<br />
-                                    <span class="text-secondary"> Jl. Gaya Motor I Sunter II, Jakarta 14330 </span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </section>
 
@@ -116,6 +86,206 @@
                 <p class="text-secondary text-center">Digital Summit 2025 <br />by Honda Prospect Motor</p>
             </div>
         </section>
+
+        <script>
+            const dealerData = {
+                "Honda Jakarta Center (HJC)": [
+                    "HONDA JAKARTA CENTER",
+                    "Honda IKM Hasyim Ashari",
+                    "Honda Cakra Pangukir",
+                    "Honda Arista Mangga Dua",
+                    "Honda Autoland",
+                    "Honda Sunter",
+                    "Honda Pluit",
+                    "Honda Fatmawati",
+                    "Honda Pondok Indah",
+                    "Honda Mugen",
+                    "Honda Permata Hijau",
+                    "Honda Tebet",
+                    "Honda Tendean",
+                    "Honda Pondok Pinang",
+                    "Honda Mitra Lenteng Agung",
+                    "Honda Nusantara MT Haryono",
+                    "Honda Kebon Jeruk",
+                    "Honda IKM Daan Mogot",
+                    "Honda Mugen Puri",
+                    "Honda Megatama Kapuk",
+                    "Honda Megatama",
+                    "Honda Arista Jatinegara",
+                    "Honda Surya Jaya Cijantung",
+                    "Honda Maju Pd Gede",
+                    "Honda Bintaro",
+                    "Honda Pondok Cabe",
+                    "Honda Trimegah BSD",
+                    "Honda Permata Serpong",
+                    "Honda Autoland Ciputat",
+                    "Honda Bintang Cimone",
+                    "Honda IKM Ciledug",
+                    "Honda Tren Alam Sutera",
+                    "Honda Arta Cikupa",
+                    "Honda Mandiri Bogor",
+                    "Honda Internusa Cibinong",
+                    "Honda Imora Sentul",
+                    "Honda Sholeh Iskandar",
+                    "Honda Kencana Kranji",
+                    "Honda Cibubur",
+                    "Honda Mitra Jatiasih",
+                    "Honda Megatama Bekasi",
+                    "Honda Prima Harapan Indah",
+                    "Honda Triputra Bekasi",
+                    "Honda Nusantara Bekasi",
+                    "Honda Arista Depok",
+                    "Honda Megah Cinere",
+                    "Honda Pradana Sawangan",
+                ],
+                "Honda Bandung Center (HBC)": [
+                    "Honda Bandung Center",
+                    "Honda LPPM",
+                    "Honda Autobest",
+                    "Honda Mulya Putra",
+                    "Honda Star Motor",
+                    "Honda Kumala Karawang",
+                    "Honda Ahmad Yani",
+                    "Honda Auto Serang",
+                    "Honda Sonic",
+                    "Honda Eiyu Indramayu",
+                    "Honda Perdana Sukabumi",
+                    "Honda Mulia Cianjur",
+                    "Honda Abadi Cibiru",
+                    "Honda IBRM Cimahi",
+                    "Honda Kumala Cikampek",
+                    "Honda Auto Cilegon",
+                    "Honda IBRM Subang",
+                ],
+                "Honda Semarang Center (HSMC)": [
+                    "Honda Semarang Center",
+                    "Honda Gajah Mada",
+                    "Honda Anugerah",
+                    "Honda Bintang",
+                    "Honda Istana Carindo",
+                    "Honda Kusuma",
+                    "Honda Pekalongan Motor",
+                    "Honda Tugu",
+                    "Honda Tunas Jaya",
+                    "Honda Solo Baru",
+                    "Honda Kudus Jaya",
+                    "Honda Tegal Raya",
+                    "Honda Salatiga Jaya",
+                    "Honda Anugerah Sejahtera",
+                    "Honda Sumber Cilacap",
+                    "Honda Pati Jaya",
+                    "Honda Sumber Purwokerto",
+                    "Honda Mandalatama BSB",
+                    "Honda Perkasa Klaten",
+                    "Honda Mandalatama Jepara",
+                ],
+                "Honda Surabaya Center (HSC)": [
+                    "Honda Surabaya Center",
+                    "Honda Denpasar Agung",
+                    "Honda Mandalasena",
+                    "Honda Naga Motor",
+                    "Honda Pacific Motor",
+                    "Honda Surya Agung",
+                    "Honda Dewata Motor",
+                    "Honda Istana Jember",
+                    "Honda Mitra Mojokerto",
+                    "Honda Sukun Malang",
+                    "Honda Kupang Indah",
+                    "Honda Mitra Tuban",
+                    "Honda Naga Motor 2",
+                    "Honda Istana Banyuwangi",
+                    "Honda Mitra Gresik",
+                    "Honda Pacific Tulungagung",
+                    "Honda Lestari Probolinggo",
+                    "Honda Royal Wiyung",
+                    "Honda Royal Kenjeran",
+                    "Honda Cokroaminoto",
+                    "Honda Bintang Madiun",
+                    "Honda Prisma HR Muhammad",
+                    "Honda Bintang Tabanan",
+                ],
+                "Honda Outside Java (HOJ)": [
+                    "Honda Cikarang",
+                    "Honda Gajah Motor",
+                    "Honda Daya Motor",
+                    "Honda IDK 1",
+                    "Honda Lampung Raya",
+                    "Honda Trio Motor",
+                    "Honda Soekarno Hatta",
+                    "Honda Makassar Indah",
+                    "Honda Remaja Jaya",
+                    "Honda Sanggar Laut Selatan",
+                    "Honda Union Palembang",
+                    "Honda IDK 2",
+                    "Honda Wiltop Jambi",
+                    "Honda Arista SM Raja",
+                    "Honda Balindo",
+                    "Honda Nagoya",
+                    "Honda Bintan Pratama",
+                    "Honda Niaga Bangka",
+                    "Honda Arista Sudirman",
+                    "Honda Martadinata 2",
+                    "Honda Arista Banda Aceh",
+                    "Honda Nengga Mobilindo",
+                    "Honda Trio Raya",
+                    "Honda Cahaya Gratia",
+                    "Honda Mitra Jayapura",
+                    "Honda Arista Rajabasa",
+                    "Honda Arista Bengkulu",
+                    "Honda Trio Banjarbaru",
+                    "Honda SM Amin",
+                    "Honda Maju Motor Tanjung Api-Api",
+                    "Honda Selaras Ambon",
+                    "Honda Remaja Jaya Panaikang",
+                    "Honda Arista Ringroad",
+                    "Honda Gajah Motor Bypass",
+                    "Honda Internusa Makassar",
+                    "Honda Sanggar Laut Selatan 2",
+                    "Honda Amartha Samarinda",
+                    "Honda Nusantara Balikpapan",
+                    "Honda Niaga Sudirman",
+                    "Honda Nusantara Samarinda",
+                    "Honda Thamrin Jambi",
+                    "Honda KMG Manado",
+                    "Honda IDK Cemara",
+                    "Honda Taman Kota",
+                    "Honda Sanggar Laut Palopo",
+                    "Honda KMG Palu",
+                    "Honda Bone Indah",
+                    "Honda Balindo Mamuju",
+                    "Honda Selaras Ternate",
+                    "Honda Intimobil Lampung",
+                ],
+            };
+
+            const mainDealerSelect = document.getElementById("mainDealer");
+            const dealerSelect = document.getElementById("dealer");
+
+            // Populate main dealer dropdown
+            Object.keys(dealerData).forEach((md) => {
+                const opt = document.createElement("option");
+                opt.value = md;
+                opt.textContent = md;
+                mainDealerSelect.appendChild(opt);
+            });
+
+            // When main dealer changes
+            mainDealerSelect.addEventListener("change", () => {
+                const selectedMD = mainDealerSelect.value;
+                const dealers = dealerData[selectedMD] || [];
+
+                // Reset dealer dropdown
+                dealerSelect.innerHTML = "<option selected disabled>-- Select Dealer --</option>";
+                dealers.forEach((dealer) => {
+                    const opt = document.createElement("option");
+                    opt.value = dealer;
+                    opt.textContent = dealer;
+                    dealerSelect.appendChild(opt);
+                });
+
+                dealerSelect.disabled = false;
+            });
+        </script>
 
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"

@@ -12,7 +12,8 @@
             crossorigin="anonymous"
         />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
-
+        <link rel="stylesheet" href="https://unpkg.com/locomotive-scroll/dist/locomotive-scroll.min.css" />
+        <script src="https://unpkg.com/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
         <style>
             .section-hero {
                 background-image: url("hero.jpg");
@@ -21,30 +22,36 @@
                 background-size: cover;
                 background-position: center;
                 color: white;
+                position: relative;
             }
 
             .section-reason {
                 background: #000103;
                 background: linear-gradient(180deg, rgba(0, 1, 3, 1) 0%, rgba(5, 30, 57, 1) 100%);
+                position: relative;
             }
 
             .section-speaker {
                 background: #051e39;
                 background: radial-gradient(circle, rgba(5, 30, 57, 1) 0%, rgba(0, 1, 3, 1) 100%);
+                position: relative;
             }
 
             .section-agenda {
                 background: #000103;
                 background: url("bg-pixel-1.png") no-repeat center center / cover, linear-gradient(180deg, rgba(5, 30, 57, 1) 0%, rgba(0, 1, 3, 1) 100%);
+                position: relative;
             }
 
             .section-countdown {
                 background: url("line.png") no-repeat center top / cover, radial-gradient(circle 1000px at top center, rgba(5, 30, 57, 1) 0%, rgba(0, 1, 3, 1) 100%);
                 background-blend-mode: overlay;
+                position: relative;
             }
 
             .section-footer {
                 background-color: black;
+                position: relative;
             }
 
             ul.timeline {
@@ -81,12 +88,32 @@
                 height: 15px;
                 z-index: 400;
             }
+
+            .content {
+                z-index: 100;
+                position: relative;
+            }
+
+            .cube42 {
+                top: 20%;
+                left: 20%;
+                width: 10%;
+                z-index: 1;
+            }
+            .cube83 {
+                bottom: 100px;
+                right: 20%;
+                width: 10%;
+                z-index: 1;
+            }
         </style>
     </head>
-    <body>
+    <body data-scroll-container>
         <!-- Hero Section -->
         <section class="py-5 py-xl-8 section-hero">
-            <div class="container py-5">
+            <img class="position-absolute cube42" src="cube1-42.png" data-scroll data-scroll-speed="3" />
+            <img class="position-absolute cube83" src="cube1-83.png" data-scroll data-scroll-speed="3" />
+            <div class="container content py-5">
                 <div class="col-8 col-md-4 mx-auto">
                     <img src="logo-honda.svg" alt="Honda" class="img-fluid mb-3" />
                 </div>
@@ -147,7 +174,8 @@
 
         <!-- Reason Section -->
         <section class="py-5 py-xl-8 section-reason">
-            <div class="container">
+            <img class="position-absolute cube42" src="icon-googleprofile.png" data-scroll data-scroll-speed="3" />
+            <div class="container content">
                 <div class="row justify-content-md-center">
                     <div class="col-11 mx-auto col-md-8">
                         <h2 class="mb-4 display-5 text-center">Mengapa Anda Harus Hadir?</h2>
@@ -368,8 +396,8 @@
                 // Display the result
                 document.getElementById("days").innerHTML = days.toString().padStart(2, "0");
                 document.getElementById("hours").innerHTML = hours.toString().padStart(2, "0");
-                document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, "0");
-                document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, "0");
+                // document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, "0");
+                // document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, "0");
 
                 // If the countdown is finished, write some text
                 if (distance < 0) {
@@ -388,6 +416,13 @@
                 <p class="text-secondary text-center">Honda DIGICON 2025 <br />by PT Honda Prospect Motor</p>
             </div>
         </section>
+
+        <script>
+            const scroll = new LocomotiveScroll({
+                el: document.querySelector("[data-scroll-container]"),
+                smooth: true,
+            });
+        </script>
 
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
